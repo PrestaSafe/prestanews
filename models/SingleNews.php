@@ -1,0 +1,1 @@
+SingleNews.php

@@ -1,0 +1,7 @@
+/*
+	Style for prestanews module.
+*/
+
+#news_content p img,#news_content img{
+	margin:2px 8px;
+}

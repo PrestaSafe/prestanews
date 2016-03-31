@@ -1,0 +1,32 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{prestanews}prestashop>prestanews_35173193840307bb2849ee24d7d9b073'] = 'Bloc actualités';
+$_MODULE['<{prestanews}prestashop>prestanews_89b7b864f10a2bbe1e27452f26027739'] = 'Ajoutez des actualités à votre boutique';
+$_MODULE['<{prestanews}prestashop>prestanews_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>prestanews_b97ac038583548bb9b1b3da90c9c0904'] = 'Toutes les actualités';
+$_MODULE['<{prestanews}prestashop>prestanews_c888438d14855d7d96a2724ee9c306bd'] = 'Paramètres mis à jours';
+$_MODULE['<{prestanews}prestashop>prestanews_3f9c6156c58d45d9a4437d2aaedbba1d'] = 'Erreur lors de la mise à jour des paramètres';
+$_MODULE['<{prestanews}prestashop>prestanews_f4f70727dc34561dfde1a3c529b6205c'] = 'Paramètres';
+$_MODULE['<{prestanews}prestashop>prestanews_dc2df83961c8f3b58d4767ff61b6cb62'] = 'Nombre de actualités à afficher';
+$_MODULE['<{prestanews}prestashop>prestanews_c9cc8cce247e49bae79f15173ce97354'] = 'Sauvegarder';
+$_MODULE['<{prestanews}prestashop>prestanews_630f6dc397fe74e52d5189e2c80f282b'] = 'Retour à la liste';
+$_MODULE['<{prestanews}prestashop>newscontroller_d3b206d196cd6be3a2764c1fb90b200f'] = 'Supprimer ?';
+$_MODULE['<{prestanews}prestashop>newscontroller_e25f0ecd41211b01c83e5fec41df4fe7'] = 'Supprimer les éléments séléctionnés';
+$_MODULE['<{prestanews}prestashop>newscontroller_b718adec73e04ce3ec720dd11a06a308'] = 'ID';
+$_MODULE['<{prestanews}prestashop>newscontroller_d5d3db1765287eef77d7927cc956f50a'] = 'Titre';
+$_MODULE['<{prestanews}prestashop>newscontroller_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>newscontroller_51ec9bf4aaeab1b25bb57f9f8d4de557'] = 'Titre';
+$_MODULE['<{prestanews}prestashop>newscontroller_a87b4894869d4ca0f3b1cf97cd24cb1c'] = 'Contenu';
+$_MODULE['<{prestanews}prestashop>newscontroller_c9cc8cce247e49bae79f15173ce97354'] = 'Sauvegarder';
+$_MODULE['<{prestanews}prestashop>list-news-15_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>list-news-15_43340e6cc4e88197d57f8d6d5ea50a46'] = 'Lire la suite';
+$_MODULE['<{prestanews}prestashop>list-news-15_cd434d93449235e34afe7dc9cd12b24b'] = 'Il n\'y a aucune actualités';
+$_MODULE['<{prestanews}prestashop>list-news-16_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>list-news-16_43340e6cc4e88197d57f8d6d5ea50a46'] = 'Lire la suite';
+$_MODULE['<{prestanews}prestashop>list-news-16_cd434d93449235e34afe7dc9cd12b24b'] = 'Il n\'y aucune actualités';
+$_MODULE['<{prestanews}prestashop>right_column-15_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>right_column-15_386e86eccef7063fabac8a0b8c2c1727'] = 'Toutes les actualités';
+$_MODULE['<{prestanews}prestashop>right_column-16_dd1ba1872df91985ed1ca4cde2dfe669'] = 'Actualités';
+$_MODULE['<{prestanews}prestashop>right_column-16_386e86eccef7063fabac8a0b8c2c1727'] = 'Toutes les actualités';
