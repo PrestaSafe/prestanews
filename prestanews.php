@@ -4,9 +4,9 @@
  *
  * @category   	Module / documentation
  * @author     	Guillaume Batier
- * @copyright  	2013-2014 web-batier.com
+ * @copyright  	2013-2014 base2code.com
  * @version   	1.6.0.5
- * @link       	http://www.web-batier.com/
+ * @link       	http://www.base2code.com/
  * @since      	File available since Release 1.2
 */
 
@@ -27,7 +27,7 @@ class Prestanews extends Module
 {
 
   public function __construct(){
-	$this->author 							= 'Guillaume batier -> web-batier.com ';
+	$this->author 							= 'Guillaume batier -> base2code.com ';
 	$this->name 							= 'prestanews';
 	$this->tab 								= 'front_office_featured';
 	$this->version 							= '1.5';
