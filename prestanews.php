@@ -14,7 +14,7 @@
 // Security
 if (!defined('_PS_VERSION_'))
 	exit;
-	
+
 
 if (!defined('_MYSQL_ENGINE_'))
 	define('_MYSQL_ENGINE_', 'MyISAM');
@@ -24,29 +24,28 @@ require_once(_PS_MODULE_DIR_ .'prestanews/models/NewsModel.php');
 
 
 class Prestanews extends Module
-{			
-	
-  public function __construct(){  		  	
-	$this->author 							= 'Guillaume batier -> web-batier.com '; 
+{
+
+  public function __construct(){
+	$this->author 							= 'Guillaume batier -> web-batier.com ';
 	$this->name 							= 'prestanews';
-	$this->tab 								= 'front_office_featured';	
+	$this->tab 								= 'front_office_featured';
 	$this->version 							= '1.5';
 	$this->ps_versions_compliancy['min'] 	= '1.5';
-	$this->module_key 						= 'a7bf7d3d0721208d47df14ce51c6bbe9';
 	$this->bootstrap = true;
-    $this->display = 'view';
-    $this->meta_title = $this->l('Your Merchant Expertise');
-	$this->need_instance 					= 0; 
+  $this->display = 'view';
+  $this->meta_title = $this->l('Your Merchant Expertise');
+	$this->need_instance 					= 0;
 	$this->dependencies 					= array();
-		
-		
+
+
 	parent::__construct();
-		
+
 	$this->displayName 						= $this->l('Actualities block');
 	$this->description 						= $this->l('Add some actualities on your shop !');
-	
+
   }
-  
+
 	public function install()
 	{
 		// Install SQL
@@ -54,7 +53,7 @@ class Prestanews extends Module
 		foreach ($sql as $s)
 			if (!Db::getInstance()->execute($s))
 				return false;
-								
+
 		// Install Tabs
 		$parent_tab = new Tab();
         $lang = ($this->context->language->id) ? $this->context->language->id : _PS_LANG_DEFAULT_ ;
@@ -65,23 +64,23 @@ class Prestanews extends Module
 		$parent_tab->id_parent = 0; // Home tab
 		$parent_tab->module = $this->name;
 		$parent_tab->add();
-		
-		
-		$tab = new Tab();		
+
+
+		$tab = new Tab();
 		// Need a foreach for the language
 		$tab->name[$lang] = $this->l('Your actualities');
 		$tab->class_name = 'News';
 		$tab->id_parent = $parent_tab->id;
 		$tab->module = $this->name;
 		$tab->add();
-		
-		
-				
 
-	
+
+
+
+
    	return parent::install()
-		&& $this->registerHook('displayLeftColumn')  && $this->registerHook('displayHeader')  && $this->registerHook('displayBackofficeHeader') && Configuration::updateValue('_NEWS_NUMBER_', 5 );		
-  }    
+		&& $this->registerHook('displayLeftColumn')  && $this->registerHook('displayHeader')  && $this->registerHook('displayBackofficeHeader') && Configuration::updateValue('_NEWS_NUMBER_', 5 );
+  }
 
   public function uninstall()
 	{
@@ -95,12 +94,12 @@ class Prestanews extends Module
 		$tab->delete();
 		$tabMain = new Tab((int)Tab::getIdFromClassName('NewsMain'));
 		$tabMain->delete();
-		
+
 		// Uninstall Module
 		if (!parent::uninstall())
 			return false;
-			
-		
+
+
 
 		return true;
 	}
@@ -123,7 +122,7 @@ public function updateConfiguration(){
 }
 
 public function getContent(){
-		
+
 		return $this->postProcess().$this->displayForm();
 	}
 
@@ -131,7 +130,7 @@ public function displayForm()
 {
     // Get default Language
     $default_lang = (int)Configuration::get('PS_LANG_DEFAULT');
-     
+
     // Init Fields form array
     $fields_form[0]['form'] = array(
         'legend' => array(
@@ -151,19 +150,19 @@ public function displayForm()
             'class' => 'button'
         )
     );
-     
+
     $helper = new HelperForm();
-     
+
     // Module, token and currentIndex
     $helper->module = $this;
     $helper->name_controller = $this->name;
     $helper->token = Tools::getAdminTokenLite('AdminModules');
     $helper->currentIndex = AdminController::$currentIndex.'&configure='.$this->name;
-     
+
     // Language
     $helper->default_form_language = $default_lang;
     $helper->allow_employee_form_lang = $default_lang;
-     
+
     // Title and toolbar
     $helper->title = $this->displayName;
     $helper->show_toolbar = true;        // false -> remove toolbar
@@ -175,17 +174,17 @@ public function displayForm()
             'desc' => $this->l('Save'),
             'href' => AdminController::$currentIndex.'&configure='.$this->name.'&save'.$this->name.
             '&token='.Tools::getAdminTokenLite('AdminModules'),
-            
+
         ),
         'back' => array(
             'href' => AdminController::$currentIndex.'&token='.Tools::getAdminTokenLite('AdminModules'),
             'desc' => $this->l('Back to list')
         )
     );
-     
+
     // Load current value
     $helper->fields_value['_NEWS_NUMBER_'] = Configuration::get('_NEWS_NUMBER_');
-     
+
     return $helper->generateForm($fields_form);
 }
 
@@ -196,7 +195,7 @@ function getAllNews(){
 	$sql 	= "SELECT * FROM "._DB_PREFIX_."news AS n, "._DB_PREFIX_."news_lang AS nl WHERE n.id_news = nl.id_news AND nl.id_lang = $id_lang ORDER BY n.id_news DESC" ;
 	$db 	= Db::getInstance();
 	$array 	= $db->executeS($sql);
-	
+
 	return $array;
 }
 function getNewsByLimit(){
@@ -206,7 +205,7 @@ function getNewsByLimit(){
 	$sql 	= "SELECT * FROM "._DB_PREFIX_."news AS n, "._DB_PREFIX_."news_lang AS nl WHERE n.id_news = nl.id_news AND nl.id_lang = $id_lang ORDER BY n.id_news DESC LIMIT 0,$limit" ;
 	$db 	= Db::getInstance();
 	$array 	= $db->executeS($sql);
-	
+
 	return $array;
 }
 ## HOOKS
@@ -224,7 +223,7 @@ public function hookdisplayHeader(){
 
 function hookdisplayRightColumn(){
 	global $smarty,$link;
-	
+
 
 
 	$this->context->smarty->assign('news', $this->getNewsByLimit() ) ;
@@ -233,7 +232,7 @@ function hookdisplayRightColumn(){
 	else
 		return $this->display(__FILE__, 'views/templates/front/right_column-15.tpl');
 
-		
+
 }
 function hookdisplayLeftColumn(){
 	return $this->hookdisplayRightColumn();
@@ -241,6 +240,3 @@ function hookdisplayLeftColumn(){
 
 
 }
-
-
-
