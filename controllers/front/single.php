@@ -7,7 +7,7 @@ class PrestanewsSingleModuleFrontController extends ModuleFrontController{
 	}	
 
 	function detailsNews(){
-		$id = Tools::getValue('id');
+		$id = (int)Tools::getValue('id');
 		$news = NewsModel::getNewsById($id);
 
 		
