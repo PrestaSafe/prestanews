@@ -16,7 +16,7 @@ class DetailsNewsSingleController extends FrontController{
 	function detailsNews(){
 		global $smarty;
 		
-		$id 	= Tools::getValue('id');
+		$id 	= (int)Tools::getValue('id');
 		
 
 		$ps_shop_url = __PS_BASE_URI__;
